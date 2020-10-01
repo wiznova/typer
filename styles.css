@@ -1,0 +1,96 @@
+::-moz-selection { /* Code for Firefox */
+    color: red;
+    background: yellow;
+  }
+  
+::selection {
+    color: red;
+    background: yellow;
+}
+
+body {
+    background-image: linear-gradient(30deg, #f77f00, #fcd5ce);
+    height: 98vh;
+    font-family: monospace;
+    font-size: 20px;
+}
+
+.container {
+    width: 600px;
+    margin: auto;
+}
+
+#status-div {
+    text-align: center;
+
+}
+
+#user-text {
+    display: block;
+    margin: 10px auto 20px auto;
+    width: 80%;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: transparent;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 16px;
+}
+
+#user-text:focus {
+    outline: none;
+}
+
+
+#text-input {
+    white-space: pre;
+    border: 1px solid hsl(30, 0%, 50%);
+    border-radius: 5px;
+    width: 80%;
+    margin: 100px auto;
+    padding: 10px 10px 10px 10px;
+    font-family: monospace;
+    overflow: hidden;
+}
+
+
+/* KEYBOARD */
+
+.keyboardRow {
+    display: flex;
+    justify-content: center;
+}
+
+.key {
+    display: inline-block;
+    color: rgba(0, 0, 0, 0.6);
+    border: 1px solid #f77f00;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 0px 5px 5px 5px
+}
+
+.key.pressed {
+    background-color: tomato;
+}
+
+#right-hand-btn, #left-hand-btn {
+    font-size: 16px;
+}
+
+
+/* SHORTCUT BUTTONS */
+
+.shortcuts {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 0px 20px 0px;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+a:hover {
+    color: rgba(0, 0, 0, 0.6);
+    /* text-decoration: underline; */
+}
