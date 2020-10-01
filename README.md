@@ -1,8 +1,10 @@
 # typer
 This is a typing trainer written in HTML + CSS and Vanilla JavaScript.
+Try it out here: https://wiznova.github.io/typer/
 
 
 # Features:
+- Vanilla JavaScript, no dependencies
 - Paste your own text for practice or use pre-made training texts for each hand
 - Interactive keyboard
 
