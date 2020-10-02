@@ -82,7 +82,9 @@ body {
 
 .shortcuts {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    margin: auto;
+    width: 80%;
     padding: 20px 0px 20px 0px;
 }
 
@@ -93,4 +95,14 @@ a {
 a:hover {
     color: rgba(0, 0, 0, 0.6);
     /* text-decoration: underline; */
+}
+
+/* WORDS SLIDER */
+#nb-words-slider {
+    display: flex;
+    justify-content: center;   
+}
+
+#words-slider {
+    margin-left: 10px;
 }

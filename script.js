@@ -1,11 +1,11 @@
 const rightHand = "hill hilly him hip hippo holly holy hominy homonym honk honky hook hookup hoop hop hulk hull hum hump hunk hymn ill imply in ink inky inn ion ionium join jollily jolly joy jump jumpily jumpy junk junky kill killjoy kink kinky knoll kook kooky lily limp limply link linkup lion lip lippy loin lollipop look loom loon loony loop lop lull lump lumpily lumpy milk milky mill million mini minimum minion mink mom mommy monk monopoly moon mop mull mum mummy my no nonunion nook noon noun null nun nylon nymph oh ohio ohm oil oily oink omnium on onion only oomph opinion opium phony phylum pi pill pimp pimply pin pinion pink pinky pinup pippin plop ploy plum plump plumply plunk polio polk poll polo poly polyp polyphony pomp pompon pony pool pop poplin poppy pull pulp pump pumpkin pun punk puny pup pupil puppy unholy unhook union unpin up uphill upon yolk you yukon yummy"
 const leftHand = "abracadabra accrete affect age as ave avesta axes badge barge bastard cart cascade cave crater crave created crest deface drag dread drear dressed east eaves effect exec far farce fast faster gaff gas gated geez grass grave grease great greatest greece greed qatar race red tea redface retard retract reverberate sat sex starter starve staves stewardess stewart strafe stress swedes terse treat tree tweet vast veer verde vest vexes wage wart waste water waves we weed eater were west wrest zed"
 
-{  // build Keyboard
-    let keyboard = document.getElementById("keyboard");
-    let row_el;
-    let key_el;
+let keyboard = document.getElementById("keyboard");
+let row_el;
+let key_el;
 
+{  // build Keyboard
     const keyRows = [
         "qwertyuiop".split(''),
         "asdfghjkl".split(''),
@@ -35,6 +35,8 @@ const leftHand = "abracadabra accrete affect age as ave avesta axes badge barge 
     let statusText = document.getElementById("status-div");
     let leftHandBtn = document.getElementById("left-hand-btn");
     let rightHandBtn = document.getElementById("right-hand-btn");
+    let wordSlider = document.getElementById('words-slider');
+    let wordLabel = document.getElementById('nb-words');
     
     // Variables:
     let text;
@@ -46,14 +48,31 @@ const leftHand = "abracadabra accrete affect age as ave avesta axes badge barge 
 
 
     resetGame();
+
+    function shuffle(a) {
+        let j, x, i;
+        for (i = a.length - 1; i > 0; i--) {
+            j = Math.floor(Math.random() * (i + 1));
+            x = a[i];
+            a[i] = a[j];
+            a[j] = x;
+        }
+        return a;
+    }
     
-    leftHandBtn.onclick = () => {
-        userText.innerText = leftHand;
+    function insertTemplate(a) {
+        let shuffledA = shuffle(a.split(' '));
+        let wordCo = parseInt(wordSlider.value);
+
+        userText.innerText = shuffledA.slice(0, wordCo + 1).join(' ');
         resetGame();
     }
+    
+    leftHandBtn.onclick = () => {
+        insertTemplate(leftHand);
+    }
     rightHandBtn.onclick = () => {
-        userText.innerText = rightHand;
-        resetGame();
+        insertTemplate(rightHand);
     }
 
     document.addEventListener("keydown", function (e){
@@ -66,8 +85,10 @@ const leftHand = "abracadabra accrete affect age as ave avesta axes badge barge 
             resetGame();
         } else {
             if (text[0] === key) {
-                if (timeStart === 0) 
+                if (timeStart === 0) {
                     timeStart = Date.now();
+                    updateField(statusText, `Hi there! errors: 0 time: 0 wpm: 0<br>[ press ESC to restart ]`);
+                }
                 text = updateField(inputText, text.substring(1));
                 if(text === ""){
                     updateField(inputText, " ");
@@ -82,6 +103,11 @@ const leftHand = "abracadabra accrete affect age as ave avesta axes badge barge 
             }
         }
     });
+
+    wordSlider.addEventListener('input', function () {
+        wordLabel.innerHTML = wordSlider.value;
+      }, false);
+
 
     document.addEventListener('keyup', function (e) {
         let keyCode = e.keyCode;
@@ -118,7 +144,7 @@ const leftHand = "abracadabra accrete affect age as ave avesta axes badge barge 
     }
 
     function resetGame() {
-        updateField(statusText, `Hi there! errors: 0 time: 0 wpm: 0<br>[ press ESC to restart ]`);
+        updateField(statusText, `Hi there! errors: 0 time: 0 wpm: 0<br>[ start typing ]`);
         text = updateField(inputText, userText.value);
         textLength = text.length;
         errors = 0;

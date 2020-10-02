@@ -11,12 +11,15 @@
 
         <div class="shortcuts">
             <a href="#" id='left-hand-btn'>left hand</a>
+            <div id="nb-words-slider">
+                <label id="nb-words" for='words-range'>25</label>
+                <input type="range" id="words-slider" name="words-range" min="1" max="100" value='25'>
+            </div>
             <a href="#" id='right-hand-btn'>right hand</a>
         </div>
-
         <textarea id='user-text' cols="50" rows="7">Paste your text here or press one of the links above.</textarea>
 
-        <div id="status-div">Hi there! errors: 0 time: 0 wpm: 0<br>[ press ESC to restart ]`</div>
+        <div id="status-div"></div>
 
         <div id="text-input"></div>
 
