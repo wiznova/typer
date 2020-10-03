@@ -37,7 +37,13 @@ let key_el;
     let rightHandBtn = document.getElementById("right-hand-btn");
     let wordSlider = document.getElementById('words-slider');
     let wordLabel = document.getElementById('nb-words');
-    
+
+    let settingsDiv = document.getElementById('settings-div');
+    let settingsBtn = document.getElementById('settings-btn');
+    let settingsInputs = document.getElementById('settings-inputs');
+    let clickChbx = document.getElementById('click-chbx');
+    let keybrChbx = document.getElementById('keybr-chbx');
+
     // Variables:
     let text;
     let textLength;
@@ -67,6 +73,20 @@ let key_el;
         userText.innerText = shuffledA.slice(0, wordCo + 1).join(' ');
         resetGame();
     }
+
+    settingsBtn.onmouseover = () => {
+        settingsDiv.style.backgroundColor = "rgba(255, 255, 255, 0.2)";
+        settingsInputs.style.display = "block";
+    }
+    settingsDiv.onmouseleave = () => {
+        settingsInputs.style.display = "none";
+        settingsDiv.style.backgroundColor = 'transparent';
+
+        if (!keybrChbx.checked)
+            document.getElementById("keyboard").style.display = "none";
+        else
+            document.getElementById("keyboard").style.display = "block";
+    }
     
     leftHandBtn.onclick = () => {
         insertTemplate(leftHand);
@@ -80,7 +100,10 @@ let key_el;
         let key = e.key;
         
         toggleKey(e.key);
-        console.log(keyCode, key, e);
+        // console.log(keyCode, key, e);
+        let audio = new Audio('cropped-keybr.mp3');
+        if (clickChbx.checked)
+            audio.play();
         if(keyCode==27) {
             resetGame();
         } else {
