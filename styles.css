@@ -78,7 +78,31 @@ body {
 }
 
 
-/* SHORTCUT BUTTONS */
+/* BUTTONS */
+
+#settings-div {
+    font-size: 1rem;
+    position: absolute;
+    border-radius: 5px;
+    padding: 0.2rem;
+}
+
+.settings-item {
+    display: block;
+}
+
+#settings-btn {
+    opacity: 0.7;
+}
+#settings-btn:hover {
+    opacity: 1;
+    color: inherit;
+}
+
+#settings-inputs {
+    display: none;
+    margin: 0.5rem 0 0.5rem 0;
+}
 
 .shortcuts {
     display: flex;
