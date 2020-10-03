@@ -3,9 +3,10 @@ This is a Typing Tutor written in HTML, CSS and Vanilla JavaScript from scratch 
 Try it out here: https://wiznova.github.io/typer/
 
 ## Features:
-- [X] Paste your own text for practice or use pre-made training texts for each hand
+- [X] Paste your own text for practice or use pre-made training words for each hand
+- [X] Choose how many words you want in an exercise
 - [X] Interactive keyboard
-- [X] choose how many words in an exercise
+- [X] Settings block with option to turn off typing sounds and hide keyboard
 
 ===
 
@@ -16,8 +17,6 @@ Try it out here: https://wiznova.github.io/typer/
 - [ ] make sure the design is responsive to screensize
 - [ ] add support for phones (touch input, deparate input for phones)
 - [ ] realtime update for error values/time passed/wpm values
-- [ ] option to turn on typing sounds
-- [ ] option to hide keyboard
 - [ ] don't register keystrokes, when typing in textarea
 - [ ] style textarea's slider and corner for large text
 - [ ] improve keyboard layout alignment
