@@ -1,5 +1,6 @@
 # typer
 This is a Typing Tutor written in HTML, CSS and Vanilla JavaScript from scratch with no dependencies.
+
 Try it out here: https://wiznova.github.io/typer/
 
 ## Features:
@@ -23,3 +24,12 @@ Try it out here: https://wiznova.github.io/typer/
 - [ ] shuffle words from order-agnostic lists
 - [ ] check a bug when after restarting in the edit mode, you click away and get a paste of a prev version of the text in textarea
 - [ ] add a menu with link to the main site and future projects
+
+
+## Changelog:
+
+### 03 Oct 2020:
+- added settings block with option to turn off typing sounds and hide keyboard
+
+### 02 Oct 2020:
+- One-day build
